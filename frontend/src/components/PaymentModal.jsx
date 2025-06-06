@@ -8,6 +8,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import HomeIcon from "@mui/icons-material/Home";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
 const PaymentModal = ({ open, onClose, total }) => {
   if (!open) return null;
@@ -22,6 +23,7 @@ const PaymentModal = ({ open, onClose, total }) => {
     pan: "",
     pincode: "",
     address: "",
+    date: new Date().toISOString().split('T')[0] // Auto fill current date
   });
 
   const handleChange = (e) => {
@@ -58,7 +60,7 @@ const PaymentModal = ({ open, onClose, total }) => {
           };
 
           const result = await axios.post(
-            "http://localhost:5000/api/saveDonation",
+            "https://doggie-don.onrender.com/api/saveDonation",
             donationData,
             {
               headers: {
@@ -232,6 +234,22 @@ const PaymentModal = ({ open, onClose, total }) => {
                               pattern="[0-9]{10}"
                               className="w-full pl-9 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm text-sm"
                               placeholder="Enter 10-digit number"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-green-700 mb-1">
+                            Date
+                          </label>
+                          <div className="relative">
+                            <CalendarTodayIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-green-700/60 text-sm" />
+                            <input
+                              type="date"
+                              name="date"
+                              value={formData.date}
+                              onChange={handleChange}
+                              className="w-full pl-9 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm text-sm"
+                              readOnly
                             />
                           </div>
                         </div>

@@ -13,7 +13,7 @@ const DonorList = () => {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/getDonors");
+        const res = await axios.get("https://doggie-don.onrender.com/api/getDonors");
         if (res.data.success) {
           setDonors(res.data.donors);
         }

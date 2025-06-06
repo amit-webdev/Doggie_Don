@@ -41,7 +41,7 @@ const DonationSummary = ({ cart, total, onReset, updateCartItem, removeCartItem 
               if (el) el.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            HELP DOGGY DON
+            HELP DOGGIE_DON
           </button>
         ) : (
           <div className="bg-green-700 text-white rounded-xl p-3 flex items-center justify-between">
