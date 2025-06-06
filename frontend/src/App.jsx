@@ -1,7 +1,6 @@
 // import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home.jsx';
-import Footer from './components/Footer.jsx';
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
           <Route path="*" element={<Home />} /> {/* Catch all routes */}
         </Routes>
       </div>
-      <Footer />
     </div>
   );
 }
