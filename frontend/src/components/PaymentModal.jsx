@@ -10,7 +10,7 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import HomeIcon from "@mui/icons-material/Home";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
-const PaymentModal = ({ open, onClose, total }) => {
+const PaymentModal = ({ open, onClose, total, clearCart }) => {
   if (!open) return null;
 
   const [formData, setFormData] = useState({
@@ -41,10 +41,9 @@ const PaymentModal = ({ open, onClose, total }) => {
       key: "rzp_test_pHCwWBfSkeI1qg",
       amount: Number(formData.amount) * 100, // Convert to number and to paise
       currency: formData.currency,
-      name: "Doggy Don",
+      name: "Doggie_Don",
       description: "Thank you for your generous donation",
       handler: async function (response) {
-
         try {
           console.log(response.razorpay_payment_id, response.razorpay_order_id)
           // Prepare the data to be sent
@@ -71,6 +70,9 @@ const PaymentModal = ({ open, onClose, total }) => {
 
           if (result.data.success) {
             alert("Thank you for your donation!");
+            if (typeof clearCart === 'function') {
+              clearCart();
+            }
             onClose();
           } else {
             alert("Error saving donation details.");

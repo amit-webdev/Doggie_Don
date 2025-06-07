@@ -64,18 +64,16 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Donation Summary - Fixed on desktop, normal flow on mobile */}
+          {/* Donation Summary - Fixed on mobile, static on desktop */}
           <div className="w-full lg:w-1/4 xl:w-1/5">
-            <div className="lg:sticky lg:top-24">
-              <DonationSummary
-                cart={cart}
-                total={total}
-                onReset={resetCart}
-                updateCartItem={updateCartItem}
-                removeCartItem={removeCartItem}
-                onDonateNow={() => setIsPreviewOpen(true)}
-              />
-            </div>
+            <DonationSummary
+              cart={cart}
+              total={total}
+              onReset={resetCart}
+              updateCartItem={updateCartItem}
+              removeCartItem={removeCartItem}
+              onDonateNow={() => setIsPreviewOpen(true)}
+            />
           </div>
         </div>
       </main>
@@ -95,6 +93,7 @@ const Home = () => {
         open={isPaymentOpen} 
         onClose={() => setIsPaymentOpen(false)} 
         total={total}
+        clearCart={resetCart}
       />
 
       <DonorList/>
