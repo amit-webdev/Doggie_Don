@@ -11,7 +11,7 @@ const DonationPreviewModal = ({
 
   return (
     <>
-      <div onClick={onClose} className="fixed inset-0 bg-black bg-opacity-30 z-40" />
+      <div onClick={onClose} className="fixed inset-0 bg-black bg-opacity-30 z-80" />
 
       <div className="fixed top-16 sm:top-20 inset-y-auto right-0 w-full sm:w-[400px] md:w-[450px] xl:w-[500px] bg-white shadow-2xl z-50 overflow-y-auto transform transition-transform duration-300 ease-out max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)]">
         <div className="flex flex-col h-full">

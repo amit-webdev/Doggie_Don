@@ -20,8 +20,8 @@ const DonationSummary = ({ cart, total, onReset, updateCartItem, removeCartItem 
   };
 
   return (
-    <div className="fixed top-20 right-4 left-4 z-50 lg:static lg:z-auto">
-      <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 space-y-4 border border-gray-100">
+    <div className="sticky top-20 z-40 mx-auto w-full max-w-md lg:max-w-lg xl:max-w-xl">
+      <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6 space-y-4 border border-gray-100 mx-4 lg:mx-0">
         {/* Tax and info text */}
         <div className="text-center space-y-2 pb-4 border-b border-gray-100">
           <p className="text-xs text-primary/70">
